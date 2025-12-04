@@ -1,3 +1,4 @@
+from __future__ import annotations
 from fastapi import FastAPI, Depends, HTTPException, status, BackgroundTasks, WebSocket
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -153,5 +154,6 @@ async def ws_realtime(ws: WebSocket):
 @app.get("/api/profile", response_model=schemas.UserOut)
 def profile(current_user = Depends(auth.get_current_user)):
     return current_user
+
 
 
