@@ -14,7 +14,7 @@ from . import database, models, schemas, crud, auth, websocket_manager, config
 # Initialize DB
 database.init_db()
 
-app = FastAPI(title="Smart Energy - Commercial API", version="1.0.0")
+app = FastAPI(title="Smart Energy - UNAL", version="1.0.0")
 ws_manager = websocket_manager.WebSocketManager()
 
 # CORS: allow all for prototype (adjust in production)
@@ -154,6 +154,7 @@ async def ws_realtime(ws: WebSocket):
 @app.get("/api/profile", response_model=schemas.UserOut)
 def profile(current_user = Depends(auth.get_current_user)):
     return current_user
+
 
 
 
