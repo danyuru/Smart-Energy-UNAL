@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from datetime import datetime, date, timedelta
 from typing import List, Optional
 from sqlalchemy import func
+from typing import List, Optional, Any
 import asyncio
 
 
@@ -152,3 +153,4 @@ async def ws_realtime(ws: WebSocket):
 @app.get("/api/profile")
 def profile(current_user = Depends(auth.get_current_user)):
     return {"email": current_user.email, "id": current_user.id}
+
