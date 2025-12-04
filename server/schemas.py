@@ -42,6 +42,14 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+class UserOut(BaseModel):
+    id: int
+    email: str
+
+    class Config:
+        orm_mode = True
+
+
 class TokenData(BaseModel):
     email: Optional[str] = None
 
@@ -52,3 +60,4 @@ class SummaryOut(BaseModel):
     latest_energy_wh: float
     daily_energy_wh: float
     daily_cost_cop: float
+
