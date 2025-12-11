@@ -7,6 +7,7 @@ from typing import List, Optional
 from sqlalchemy import func
 from typing import List, Optional, Any
 import asyncio
+import pytz
 
 
 from . import database, models, schemas, crud, auth, websocket_manager, config
@@ -154,6 +155,7 @@ async def ws_realtime(ws: WebSocket):
 @app.get("/api/profile", response_model=schemas.UserOut)
 def profile(current_user = Depends(auth.get_current_user)):
     return current_user
+
 
 
 
